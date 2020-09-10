@@ -178,6 +178,15 @@ class Keycloak extends AbstractProvider
     }
 
     /**
+     * @inheritdoc
+     */
+    protected function getScopeSeparator()
+    {
+        //openID requires a space (%20) as seperator instead of the default Leage\Oauth ',' default.
+        return ' ';
+    }
+    
+    /**
      * Check a provider response for errors.
      *
      * @throws IdentityProviderException
